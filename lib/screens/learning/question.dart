@@ -3,10 +3,10 @@ import 'package:amateurfunktrainer/coustom_libs/database.dart';
 import 'package:amateurfunktrainer/style/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
 import '../../constants.dart';
-import '../formelsammlung.dart';
+import '../misc/formelsammlung.dart';
 import 'chapterpage.dart';
 import 'finish.dart';
 
@@ -191,15 +191,17 @@ class _Questionstate extends State<Question> with TickerProviderStateMixin {
                                       child: Center(
                                         child: Padding(
                                           padding: const EdgeInsets.only(top: 30, bottom: 80, right: 24, left: 24),
-                                          child: HtmlWidget(
-                                              "$correctanser",
-                                              textStyle: TextStyle(
-                                                backgroundColor: Colors.red.shade200,
-                                                color: Colors.white,
-                                                fontSize: 30
-                                              ),
+                                          child: SingleChildScrollView(
+                                            child: HtmlWidget(
+                                                "$correctanser",
+                                                textStyle: TextStyle(
+                                                  backgroundColor: Colors.red.shade200,
+                                                  color: Colors.white,
+                                                  fontSize: 30
+                                                ),
 
-                                            ),
+                                              ),
+                                          ),
                                         ),
 
                                       )

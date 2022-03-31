@@ -1,5 +1,4 @@
-import 'package:amateurfunktrainer/learnprog/learnprog.dart';
-import 'package:amateurfunktrainer/screens/learningmodule.dart';
+import 'package:amateurfunktrainer/screens/learning/learningmodule.dart';
 import 'package:flutter/material.dart';
 
 class Bottomnavbar extends StatefulWidget{
@@ -13,10 +12,8 @@ class _BottomnavbarState extends State<Bottomnavbar>{
 
   @override
   Widget build(BuildContext context){
-    print("$currentindex");
   return BottomNavigationBar(
     currentIndex: currentindex,
-
     onTap: (index){
       setState(() {
         currentindex = index;
@@ -24,21 +21,16 @@ class _BottomnavbarState extends State<Bottomnavbar>{
 
       switch(index){
         case 0:
-          Navigator.of(context).pop();
-          Navigator.pushNamed(context, '/');
+          Navigator.popAndPushNamed(context, '/');
           Learningmodule();
           break;
         case 1:
-          Navigator.of(context).pop();
-          Navigator.pushNamed(context, '/examsim');
+          Navigator.popAndPushNamed(context, '/examsim');
           break;
         case 2:
-          Navigator.of(context).pop();
-          Navigator.pushNamed(context, '/profile');
+          Navigator.popAndPushNamed(context, '/profile');
           break;
         }
-      
-      
 
       },
       items: const <BottomNavigationBarItem>[

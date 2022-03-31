@@ -1,9 +1,9 @@
 import 'package:amateurfunktrainer/coustom_libs/database.dart';
-import 'package:amateurfunktrainer/screens/learningmodule.dart';
+import 'package:amateurfunktrainer/screens/learning/learningmodule.dart';
+import 'package:amateurfunktrainer/screens/learnprog/learnprog.dart';
 import 'package:amateurfunktrainer/style/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'learnprog/learnprog.dart';
 
 
 void main() {
@@ -21,6 +21,7 @@ void main() {
                 themeMode: ThemeMode.system,
                 title: 'Darttrainer',
                 initialRoute: "/",
+                locale: Locale.fromSubtags(countryCode: "DE"),
                 routes: {
                   "/" : (context) => Learningmodule(),
                   "/examsim" : (context) => Learnprog(),

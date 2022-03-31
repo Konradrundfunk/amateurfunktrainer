@@ -1,9 +1,10 @@
 import 'package:amateurfunktrainer/coustom_libs/database.dart';
-import 'package:amateurfunktrainer/screens/settings.dart';
+import 'package:amateurfunktrainer/screens/misc/settings.dart';
 import 'package:amateurfunktrainer/widgets/loadcontent.dart';
+import 'package:amateurfunktrainer/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 
-import 'formelsammlung.dart';
+import '../misc/formelsammlung.dart';
 
 
 class Learningmodule extends StatefulWidget {
@@ -18,6 +19,7 @@ class _LearningmoduleState extends State<Learningmodule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: Bottomnavbar(),
         appBar: AppBar(
           title: Text('Afutrainer'),
           actions: [
@@ -39,7 +41,7 @@ class _LearningmoduleState extends State<Learningmodule> {
           child: Scaffold(
             body: TabBarView(
               children: [
-                DatabaseWidget.of(context).settings_database.get("klasse_a") != null
+                DatabaseWidget.of(context).settings_database.containsKey("klasse_a")
                     ? chapterbuilder(context, 'assets/questions/DL_Technik_Klasse_A_2007.json', 0)
                     : chapterbuilder(context, 'assets/questions/DL_Technik_Klasse_E_2007.json', 0),
                 chapterbuilder(context, 'assets/questions/DL_Betriebstechnik_2007.json', 1),
@@ -47,17 +49,17 @@ class _LearningmoduleState extends State<Learningmodule> {
               ],
             ),
             appBar:
-            (DatabaseWidget.of(context).settings_database.get("betrieb_vorschriften") == null
+            DatabaseWidget.of(context).settings_database.containsKey("betrieb_vorschriften") != true
             ? AppBar(
               title: TabBar(
                 tabs: [
                   Tab(icon: Icon(Icons.settings_input_antenna), text: "Technik",),
                   Tab(icon: Icon(Icons.radio), text: "Betrieb",),
                   Tab(icon: Icon(Icons.book), text: "Vorschriften",)
-                ],
-              ),
-            ): null
-            ),
+                  ],
+                ),
+              )
+            : null
           ),
         )
 

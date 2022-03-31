@@ -41,24 +41,22 @@ class _finishstate extends State<Finish>{
           ),
           Expanded(
             child: AspectRatio(
-              aspectRatio: 0.8,
+              aspectRatio: 0.7,
               child: PieChart(
                 PieChartData(
                   sections: [
                     PieChartSectionData(
                       value: progres(),
                       color: Colors.green,
-                      title: "richtig",
                     ),
                     PieChartSectionData(
                       value: 100.0 - progres(),
                       color: Colors.red,
-                      title: "falsch",
                     ),
                   ]
                 ),
-                swapAnimationDuration: Duration(milliseconds: 1500), // Optional
-                swapAnimationCurve: Curves.linear, 
+                swapAnimationDuration: Duration(milliseconds: 15000), // Optional
+                swapAnimationCurve: Curves.easeInOutCirc,
               ),
             ),
           ),
