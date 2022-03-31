@@ -1,5 +1,4 @@
 import 'package:amateurfunktrainer/coustom_libs/database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -16,7 +15,8 @@ class _settingsstate extends State<Settingspage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Text("not implemented");
+/*    return Scaffold(
       appBar: AppBar(
 
         title: Row(
@@ -41,7 +41,6 @@ class _settingsstate extends State<Settingspage> {
             tiles: <SettingsTile>[
               SettingsTile.switchTile(
                 onToggle: (value) {
-                  print(value);
                   if(value == false){
                     DatabaseWidget.of(context).settings_database.delete("klasse_a");
                   }else{
@@ -55,13 +54,11 @@ class _settingsstate extends State<Settingspage> {
               ),
               SettingsTile.switchTile(
                 onToggle: (value) {
-                  print(value);
                   if(value == false){
                     DatabaseWidget.of(context).settings_database.delete("betrieb_vorschriften");
                   }else{
                     DatabaseWidget.of(context).settings_database.put("betrieb_vorschriften", true);
                   }
-
                   setState(() {});
                 },
                 initialValue: DatabaseWidget.of(context).settings_database.containsKey("betrieb_vorschriften"),
@@ -73,6 +70,7 @@ class _settingsstate extends State<Settingspage> {
         ],
       ),
     );
+  */
   }
 
 }
